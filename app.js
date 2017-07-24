@@ -8,6 +8,7 @@ var errorHandler = require('errorhandler');
 var routes = require('./routes');
 var http = require('http');
 var path = require('path');
+var cors = require('cors')
 
 var app = express();
 
@@ -15,6 +16,7 @@ var app = express();
 app.set('port', process.env.PORT || 8000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+app.use(cors())
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
